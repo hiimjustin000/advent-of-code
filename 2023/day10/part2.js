@@ -35,7 +35,7 @@ for (let i = 0; i < rows; i++) {
 
 const rows3 = rows * 3;
 const cols3 = cols * 3;
-const input3 = Array(rows3).fill(0).map(x => Array(cols3).fill("."));
+const input3 = Array(rows3).fill(0).map(() => Array(cols3).fill("."));
 for (let i = 0; i < rows; i++) {
     for (let j = 0; j < cols; j++) {
         switch (input[i][j]) {
