@@ -78,7 +78,7 @@ for (let i = 0; i < rows; i++) {
     }
 }
 
-const queue = []; // javascript doesn't have deque
+const queue = [];
 const seen = new Set();
 
 for (let i = 0; i < rows3; i++) {

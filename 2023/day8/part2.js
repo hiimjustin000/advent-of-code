@@ -29,7 +29,7 @@ function lcm(...numbers) {
 function gcd(...numbers) {
     return numbers.reduce((a, b) => {
         while (b) {
-            let t = b;
+            const t = b;
             b = a % b;
             a = t;
         }

@@ -33,7 +33,7 @@ for (let i = 0; i < input.length; i++) {
             ]
             const localNumberIndices = [];
             for (let k = 0; k < surrounding.length; k++) {
-                if ((/\d/.test(surrounding[k]) && (!/\d/.test(surrounding[k - 1] ?? "") || k % 3 == 0))) localNumberIndices.push(indices[k]);
+                if (/\d/.test(surrounding[k]) && (!/\d/.test(surrounding[k - 1] ?? "") || k % 3 == 0)) localNumberIndices.push(indices[k]);
             }
             if (localNumberIndices.length == 2) numberIndices.push(...localNumberIndices);
         }
