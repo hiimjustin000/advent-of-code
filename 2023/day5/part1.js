@@ -1,16 +1,15 @@
 const fs = require("fs");
 const path = require("path");
-const input = fs.readFileSync(path.resolve(__dirname, "input.txt"), "utf8").split("\n\n");
+const input = fs.readFileSync(path.resolve(__dirname, "input.txt"), "utf8").split("\n");
 const seeds = input[0].split(": ")[1].split(" ").map(x => parseInt(x));
-const maps = input.slice(1).map(x => x.split("\n").slice(1).map(y => y.split(" ").map(z => parseInt(z))));
+const maps = input.slice(2).map(x => x.split(" ").map(y => parseInt(y)));
 const resultArray = [];
 
 function translate(index, value) {
     if (index == maps.length) return value;
 
-    for (const [destination, source, range] of maps[index]) {
-        if (source <= value && value < source + range) return translate(index + 1, destination + value - source);
-    }
+    const [destination, source, range] = maps[index];
+    if (source <= value && value < source + range) return translate(index + maps.slice(index + 1).findIndex(x => x.length < 3), destination + value - source);
 
     return translate(index + 1, value);
 }

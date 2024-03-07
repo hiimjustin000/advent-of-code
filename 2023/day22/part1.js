@@ -114,7 +114,6 @@ for (const brick of bricks) {
     }
 
     result += Number(safe);
-    i++;
 }
 
 console.log(result);
